@@ -8,10 +8,10 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
         width: 100%; min-height: 100%;
-        background: #0a0a0a; /* preto profundo */
-        color: #f5f5f5; /* branco leitoso */
+        background: #0b0b0d;
+        color: #ededed;
         font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        cursor: none; /* a vaca é o cursor */
+        cursor: none;
         overflow-x: hidden;
     }
 
@@ -20,75 +20,108 @@
 
     /* Hero */
     .hero {
+        position: relative;
         min-height: 100vh;
         display: flex; flex-direction: column;
         align-items: center; justify-content: center;
         text-align: center;
         padding: 60px 24px;
+        overflow: hidden;
         background:
-            radial-gradient(circle at 15% 20%, rgba(255,255,255,0.06), transparent 40%),
-            radial-gradient(circle at 85% 80%, rgba(255,255,255,0.04), transparent 40%),
-            /* manchas de vaca sutis no fundo */
-            radial-gradient(ellipse 180px 120px at 10% 15%, rgba(255,255,255,0.03), transparent 70%),
-            radial-gradient(ellipse 220px 140px at 90% 25%, rgba(255,255,255,0.03), transparent 70%),
-            radial-gradient(ellipse 160px 100px at 75% 90%, rgba(255,255,255,0.03), transparent 70%);
+            radial-gradient(circle at 15% 18%, rgba(255,255,255,0.045), transparent 38%),
+            radial-gradient(circle at 85% 82%, rgba(230,57,70,0.10), transparent 42%),
+            radial-gradient(circle at 78% 15%, rgba(255,255,255,0.03), transparent 36%);
     }
+    /* manchas de vaca sutis, só atrás do conteúdo */
+    .hero::before {
+        content: '';
+        position: absolute; inset: 0;
+        background:
+            radial-gradient(ellipse 220px 150px at 8% 22%, rgba(255,255,255,0.04), transparent 68%),
+            radial-gradient(ellipse 180px 120px at 92% 70%, rgba(255,255,255,0.035), transparent 68%),
+            radial-gradient(ellipse 260px 160px at 60% 5%, rgba(255,255,255,0.025), transparent 70%);
+        pointer-events: none;
+    }
+    .hero > * { position: relative; z-index: 1; }
+
     .hero-avatar {
-        font-size: 90px; line-height: 1; margin-bottom: 8px;
+        font-size: 96px; line-height: 1; margin-bottom: 4px;
         animation: flutuar 3s ease-in-out infinite;
-        filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
+        filter: drop-shadow(0 0 26px rgba(230,57,70,0.45));
     }
     @keyframes flutuar {
         0%,100% { transform: translateY(0) rotate(-3deg); }
-        50%     { transform: translateY(-12px) rotate(3deg); }
+        50%     { transform: translateY(-14px) rotate(3deg); }
     }
+
+    /* TÍTULO — o ponto de exagero 1: gigante, pesado, com sombra offset vermelha */
     .hero h1 {
-        font-size: clamp(2.4rem, 7vw, 4.4rem);
-        font-weight: 800; letter-spacing: -1px;
-        background: linear-gradient(90deg, #ffffff, #d0d0d0, #ffffff);
-        -webkit-background-clip: text; background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 8px;
-        text-shadow: 0 0 40px rgba(255,255,255,0.15);
+        font-size: clamp(3rem, 9vw, 6rem);
+        font-weight: 900; letter-spacing: -3px; line-height: 0.95;
+        color: #ffffff;
+        text-shadow:
+            4px 4px 0 #e63946,
+            8px 8px 0 rgba(230,57,70,0.35),
+            0 0 50px rgba(255,255,255,0.12);
+        margin-bottom: 12px;
     }
-    .hero .handle { color: #9a9a9a; font-size: 1.1rem; margin-bottom: 20px; }
+    .hero .handle {
+        color: #9a9a9a; font-size: 1.05rem; margin-bottom: 22px;
+        letter-spacing: 0.5px;
+    }
+    .hero .handle::before, .hero .handle::after {
+        content: '🐄'; font-size: 0.95rem; margin: 0 10px; opacity: 0.7;
+        display: inline-block; vertical-align: middle;
+    }
     .hero p.tagline {
-        max-width: 640px; color: #d8d8d8; font-size: 1.15rem;
-        line-height: 1.6; margin-bottom: 32px;
+        max-width: 600px; color: #c9c9c9; font-size: 1.12rem;
+        line-height: 1.65; margin-bottom: 34px;
     }
-    .hero p.tagline strong { color: #ffffff; }
-    .hero-botoes { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+    .hero p.tagline strong { color: #ffffff; border-bottom: 2px solid #e63946; padding-bottom: 1px; }
+
+    .hero-botoes { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 44px; }
     .btn {
-        display: inline-block; padding: 14px 28px; border-radius: 12px;
-        font-weight: 700; text-decoration: none; font-size: 1rem;
-        transition: transform .15s, box-shadow .15s;
-        border: 1px solid transparent;
+        display: inline-block; padding: 15px 30px; border-radius: 12px;
+        font-weight: 800; text-decoration: none; font-size: 1rem;
+        transition: transform .15s, box-shadow .15s, background .15s;
+        border: 2px solid transparent;
+        letter-spacing: 0.3px;
     }
     .btn:hover { transform: translateY(-3px); }
-    .btn-primario { background: #ffffff; color: #0a0a0a; box-shadow: 0 6px 0 #8a8a8a; }
-    .btn-primario:hover { box-shadow: 0 9px 0 #8a8a8a; }
-    .btn-secundario { background: #1a1a1a; color: #f5f5f5; border-color: #333; box-shadow: 0 6px 0 #000; }
-    .btn-secundario:hover { box-shadow: 0 9px 0 #000; }
+    .btn-primario {
+        background: #e63946; color: #fff;
+        box-shadow: 0 6px 0 #8f1d26, 0 0 30px rgba(230,57,70,0.35);
+    }
+    .btn-primario:hover { box-shadow: 0 9px 0 #8f1d26, 0 0 40px rgba(230,57,70,0.5); }
+    .btn-secundario {
+        background: transparent; color: #ededed; border-color: #3a3a3a;
+        box-shadow: 0 6px 0 #000;
+    }
+    .btn-secundario:hover { border-color: #ffffff; box-shadow: 0 9px 0 #000; }
 
     .badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
     .badge {
-        background: #151515; border: 1px solid #333; color: #bdbdbd;
+        background: #161618; border: 1px solid #2c2c2e; color: #b6b6b6;
         padding: 8px 16px; border-radius: 999px; font-size: .85rem; font-weight: 600;
+        transition: border-color .15s, color .15s;
     }
-    .badge strong { color: #ffffff; }
+    .badge:hover { border-color: #e63946; color: #fff; }
+    .badge strong { color: #ffffff; font-weight: 800; }
 
     /* Seções */
     section { padding: 80px 0; }
     section h2 {
-        font-size: clamp(1.6rem, 4vw, 2.2rem);
-        margin-bottom: 32px; display: flex; align-items: center; gap: 12px;
+        font-size: clamp(1.7rem, 4.5vw, 2.4rem);
+        font-weight: 900; letter-spacing: -0.5px;
+        margin-bottom: 34px; display: flex; align-items: center; gap: 14px;
         color: #ffffff;
     }
     section h2::before {
-        content: ''; width: 6px; height: 1.2em; border-radius: 3px;
-        background: linear-gradient(#ffffff, #7a7a7a);
+        content: ''; width: 7px; height: 1.1em; border-radius: 3px;
+        background: #e63946;
+        box-shadow: 0 0 16px rgba(230,57,70,0.6);
     }
-    .sobre-texto { max-width: 720px; color: #d8d8d8; line-height: 1.8; font-size: 1.05rem; }
+    .sobre-texto { max-width: 720px; color: #cfcfcf; line-height: 1.85; font-size: 1.05rem; }
     .sobre-texto strong { color: #ffffff; }
 
     /* Projetos */
@@ -97,24 +130,40 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
     .card-projeto {
-        background: #131313; border: 1px solid #2e2e2e; border-radius: 14px;
-        padding: 24px; display: flex; flex-direction: column;
-        transition: transform .18s, border-color .18s, box-shadow .18s;
+        background: #141416; border: 1px solid #262628; border-radius: 16px;
+        padding: 26px; display: flex; flex-direction: column;
+        position: relative; overflow: hidden;
+        transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    /* faixa vermelha que aparece no hover — exagero contido */
+    .card-projeto::after {
+        content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+        height: 4px; background: #e63946;
+        transform: scaleX(0); transform-origin: left;
+        transition: transform .3s ease;
     }
     .card-projeto:hover {
-        transform: translateY(-6px); border-color: #ffffff;
-        box-shadow: 0 14px 40px rgba(255,255,255,0.08);
+        transform: translateY(-6px); border-color: #3a3a3d;
+        box-shadow: 0 16px 44px rgba(0,0,0,0.5), 0 0 0 1px rgba(230,57,70,0.15);
     }
-    .card-projeto .emoji { font-size: 40px; margin-bottom: 12px; }
-    .card-projeto h3 { font-size: 1.25rem; margin-bottom: 8px; color: #ffffff; }
-    .card-projeto p { color: #a8a8a8; line-height: 1.55; flex: 1; margin-bottom: 16px; font-size: .95rem; }
+    .card-projeto:hover::after { transform: scaleX(1); }
+    .card-projeto .emoji { font-size: 42px; margin-bottom: 14px; line-height: 1; }
+    .card-projeto h3 { font-size: 1.3rem; margin-bottom: 8px; color: #ffffff; font-weight: 800; }
+    .card-projeto p { color: #a4a4a4; line-height: 1.6; flex: 1; margin-bottom: 16px; font-size: .95rem; }
     .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
-    .tag { background: #ffffff14; color: #e0e0e0; font-size: .72rem; font-weight: 700;
-           padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: .5px; }
-    .card-projeto a.link-projeto {
-        color: #ffffff; font-weight: 700; text-decoration: none; font-size: .9rem;
+    .tag {
+        background: rgba(230,57,70,0.12); color: #ff7b85;
+        font-size: .72rem; font-weight: 800;
+        padding: 4px 10px; border-radius: 6px;
+        text-transform: uppercase; letter-spacing: .5px;
+        border: 1px solid rgba(230,57,70,0.25);
     }
-    .card-projeto a.link-projeto:hover { text-decoration: underline; }
+    .card-projeto a.link-projeto {
+        color: #ffffff; font-weight: 800; text-decoration: none; font-size: .9rem;
+        display: inline-flex; align-items: center; gap: 6px;
+        transition: gap .15s, color .15s;
+    }
+    .card-projeto a.link-projeto:hover { gap: 12px; color: #e63946; }
 
     /* Skills */
     .grid-skills {
@@ -122,28 +171,37 @@
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
     .skill {
-        background: #131313; border: 1px solid #2e2e2e; border-radius: 10px;
-        padding: 18px; text-align: center; font-weight: 700; color: #d8d8d8;
-        transition: border-color .15s, color .15s, background .15s;
+        background: #141416; border: 1px solid #262628; border-radius: 12px;
+        padding: 20px; text-align: center; font-weight: 800; color: #d8d8d8;
+        transition: border-color .15s, color .15s, transform .15s, background .15s;
     }
-    .skill:hover { border-color: #ffffff; color: #ffffff; background: #1c1c1c; }
-    .skill span { display: block; font-size: 26px; margin-bottom: 6px; }
+    .skill:hover {
+        border-color: #e63946; color: #ffffff;
+        background: #1a1a1d; transform: translateY(-4px);
+    }
+    .skill span { display: block; font-size: 28px; margin-bottom: 8px; }
 
     /* Contato */
     .contato-links { display: flex; gap: 14px; flex-wrap: wrap; }
     .contato-links a {
         display: flex; align-items: center; gap: 10px;
-        background: #131313; border: 1px solid #2e2e2e; color: #f5f5f5;
-        padding: 14px 22px; border-radius: 12px; text-decoration: none; font-weight: 600;
-        transition: transform .15s, border-color .15s;
+        background: #141416; border: 1px solid #262628; color: #ededed;
+        padding: 15px 24px; border-radius: 12px; text-decoration: none; font-weight: 700;
+        transition: transform .15s, border-color .15s, box-shadow .15s;
     }
-    .contato-links a:hover { transform: translateY(-3px); border-color: #ffffff; }
+    .contato-links a:hover {
+        transform: translateY(-3px); border-color: #e63946;
+        box-shadow: 0 8px 24px rgba(230,57,70,0.15);
+    }
 
     footer {
-        text-align: center; padding: 40px 24px 60px;
-        color: #9a9a9a; font-size: .9rem; border-top: 1px solid #222;
+        text-align: center; padding: 44px 24px 64px;
+        color: #8a8a8a; font-size: .9rem; border-top: 1px solid #1e1e20;
     }
-    footer .vaca-amor { font-size: 1.05rem; margin-top: 8px; }
+    footer .vaca-amor {
+        font-size: 1.05rem; margin-top: 10px; color: #cfcfcf;
+    }
+    footer .vaca-amor strong { color: #e63946; }
 
     /* ===================== VACA OVERLAY ===================== */
     #vaca-overlay {
@@ -152,7 +210,7 @@
         pointer-events: none; z-index: 99998;
         will-change: transform;
         transform: translate(-250px, calc(100vh - 250px));
-        filter: drop-shadow(0 0 12px rgba(255,255,255,0.3));
+        filter: drop-shadow(0 0 14px rgba(230,57,70,0.4));
     }
     #vaca-label {
         width: 100%; height: 100%;
@@ -166,7 +224,7 @@
         font-size: 32px; pointer-events: none; z-index: 10000;
         transform: translate(-50%, -50%); line-height: 1;
         will-change: transform; display: block;
-        filter: drop-shadow(0 2px 6px rgba(255,255,255,0.25));
+        filter: drop-shadow(0 2px 6px rgba(230,57,70,0.5));
     }
     #modal-saida {
         position: fixed; inset: 0; z-index: 999999;
@@ -180,24 +238,25 @@
         100%{transform:translate(4px,-2px)}
     }
     .modal-caixa {
-        background: #ffffff; border: 8px solid #0a0a0a; border-radius: 20px;
+        background: #ffffff; border: 8px solid #0b0b0d; border-radius: 22px;
         padding: 40px 50px; max-width: 720px; width: 92%; text-align: center;
-        box-shadow: 0 0 0 8px #ffffff, 0 0 60px 20px rgba(255,255,255,0.4);
+        box-shadow: 0 0 0 8px #e63946, 0 0 70px 20px rgba(230,57,70,0.55);
         animation: pulsar 0.6s infinite alternate;
+        position: relative;
     }
     @keyframes pulsar {
-        from{box-shadow:0 0 0 8px #ffffff,0 0 60px 20px rgba(255,255,255,0.3)}
-        to{box-shadow:0 0 0 16px #ffffff,0 0 120px 40px rgba(255,255,255,0.6)}
+        from{box-shadow:0 0 0 8px #e63946,0 0 70px 20px rgba(230,57,70,0.4)}
+        to{box-shadow:0 0 0 16px #e63946,0 0 130px 40px rgba(230,57,70,0.7)}
     }
     .modal-emoji{font-size:110px;line-height:1;animation:pular 0.5s infinite alternate}
     @keyframes pular{from{transform:scale(1) rotate(-8deg)}to{transform:scale(1.25) rotate(8deg)}}
     .modal-titulo{
-        font-family:Impact,'Arial Black',sans-serif;font-size:48px;color:#0a0a0a;
+        font-family:Impact,'Arial Black',sans-serif;font-size:52px;color:#0b0b0d;
         text-transform:uppercase;letter-spacing:2px;margin:10px 0;
-        text-shadow:3px 3px 0 #cccccc,6px 6px 0 #000;
+        text-shadow:3px 3px 0 #e63946,6px 6px 0 #000;
     }
     .modal-texto{font-family:Arial,sans-serif;font-size:20px;color:#1a1a1a;line-height:1.5;margin:16px 0;font-weight:bold}
-    .modal-texto .destaque{color:#0a0a0a;font-size:24px;text-decoration:underline}
+    .modal-texto .destaque{color:#e63946;font-size:24px;text-decoration:underline}
     .modal-botoes{display:flex;gap:20px;justify-content:center;margin-top:28px;flex-wrap:wrap}
     .modal-botoes button{
         font-family:Impact,'Arial Black',sans-serif;font-size:24px;
@@ -205,7 +264,7 @@
         text-transform:uppercase;letter-spacing:1px;transition:transform 0.1s;
     }
     .modal-botoes button:hover{transform:scale(1.08)}
-    #btn-ficar{background:#0a0a0a;color:#ffffff;box-shadow:0 6px 0 #4a4a4a}
+    #btn-ficar{background:#e63946;color:#fff;box-shadow:0 6px 0 #8f1d26}
     #btn-sair{background:#bdbdbd;color:#333;box-shadow:0 6px 0 #777;font-size:16px;padding:12px 22px}
 
     /* ============================================================
@@ -232,7 +291,7 @@
 <header class="hero">
     <div class="hero-avatar">🐄</div>
     <h1>pixelcatBR</h1>
-    <div class="handle">@pixelcatBR · dev &amp; cúmplice de vacas</div>
+    <div class="handle">dev &amp; cúmplice de vacas</div>
     <p class="tagline">
         Desenvolvedor backend que gosta de sistemas bem feitos, leite gelado
         e de <strong>vacas felizes</strong>. 🐮
@@ -327,14 +386,14 @@
 
 <footer>
     <p>© 2026 pixelcatBR — feito com leite, código e uma vaca.</p>
-    <p class="vaca-amor">Se você chegou até aqui, a vaca está feliz. 🐮❤️</p>
+    <p class="vaca-amor">Se você chegou até aqui, a <strong>vaca está feliz</strong>. 🐮❤️</p>
 </footer>
 
 <!-- ===================== VACA OVERLAY ===================== -->
 <div id="vaca-overlay"><div id="vaca-label">🐮</div></div>
 <div id="vaca-cursor">🐮</div>
 
-<!-- Faixa do topo invisível (área de ativação reduzida e centralizada) -->
+<!-- Faixa do topo invisível -->
 <div id="faixa-topo"></div>
 
 <div id="modal-saida">
@@ -427,6 +486,8 @@ function fecharModal() {
     modalAberto = false;
     if (alertaAudio) {
         try { alertaAudio.pause(); alertaAudio.currentTime = 0; } catch(e){}
+        alertaAudio) {
+        try { alertaAudio.pause(); alertaAudio.currentTime = 0; } catch(e){}
         alertaAudio = null;
     }
     alertaJaDisparou = false;
@@ -476,6 +537,15 @@ safe('detector faixa do topo', () => {
     faixa.addEventListener('mouseleave', (e) => {
         if (permitirSaida || modalAberto) return;
         if (e.clientY <= 0) {
+            console.log('[topo] saiu da faixa do topo — abrindo modal');
+            abrirModalSaida();
+        }
+    });
+
+    faixa.addEventListener('mouseout', (e) => {
+        if (permitirSaida || modalAberto) return;
+        if (e.relatedTarget !== null) return;
+        if (e.clientY <= 0) {
             console.log('[topo] mouseout pelo topo — abrindo modal');
             abrirModalSaida();
         }
@@ -483,7 +553,7 @@ safe('detector faixa do topo', () => {
 });
 
 // ============================================================
-// Segurança: beforeunload (nativo do navegador, independe de posição)
+// Segurança: beforeunload
 // ============================================================
 safe('beforeunload', () => {
     window.addEventListener('beforeunload', (e) => {
@@ -501,7 +571,7 @@ safe('beforeunload', () => {
     });
 });
 
-// Interação: cobre scroll também (portfólio tem scroll)
+// Interação
 safe('interação', () => {
     ['click', 'keydown', 'touchstart', 'wheel'].forEach(evt => {
         document.addEventListener(evt, () => {
@@ -511,7 +581,7 @@ safe('interação', () => {
     });
 });
 
-// Atalho A (mantido, mas opcional — comente se não quiser)
+// Atalho A
 safe('atalho A', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'a' || e.key === 'A') abrirModalSaida();
