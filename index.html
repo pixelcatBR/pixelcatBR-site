@@ -8,8 +8,8 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
         width: 100%; min-height: 100%;
-        background: #0d1117;
-        color: #e6edf3;
+        background: #1a120b; /* marrom escuro de celeiro */
+        color: #f5e6d3; /* branco leitoso */
         font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         cursor: none; /* a vaca é o cursor */
         overflow-x: hidden;
@@ -26,8 +26,9 @@
         text-align: center;
         padding: 60px 24px;
         background:
-            radial-gradient(circle at 20% 20%, rgba(88,166,255,0.12), transparent 40%),
-            radial-gradient(circle at 80% 80%, rgba(255,0,0,0.08), transparent 40%);
+            radial-gradient(circle at 20% 20%, rgba(139, 69, 19, 0.25), transparent 40%),
+            radial-gradient(circle at 80% 80%, rgba(255, 140, 0, 0.15), transparent 40%),
+            repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 40px);
     }
     .hero-avatar {
         font-size: 90px; line-height: 1; margin-bottom: 8px;
@@ -40,16 +41,18 @@
     .hero h1 {
         font-size: clamp(2.4rem, 7vw, 4.4rem);
         font-weight: 800; letter-spacing: -1px;
-        background: linear-gradient(90deg, #58a6ff, #bc8cff, #ff7b72);
+        background: linear-gradient(90deg, #d4a373, #fefae0, #e9c46a);
         -webkit-background-clip: text; background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 8px;
+        text-shadow: 0 0 30px rgba(212, 163, 115, 0.3);
     }
-    .hero .handle { color: #8b949e; font-size: 1.1rem; margin-bottom: 20px; }
+    .hero .handle { color: #c4a882; font-size: 1.1rem; margin-bottom: 20px; }
     .hero p.tagline {
-        max-width: 640px; color: #c9d1d9; font-size: 1.15rem;
+        max-width: 640px; color: #e8d5c4; font-size: 1.15rem;
         line-height: 1.6; margin-bottom: 32px;
     }
+    .hero p.tagline strong { color: #fefae0; }
     .hero-botoes { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
     .btn {
         display: inline-block; padding: 14px 28px; border-radius: 12px;
@@ -58,30 +61,31 @@
         border: 1px solid transparent;
     }
     .btn:hover { transform: translateY(-3px); }
-    .btn-primario { background: #238636; color: #fff; box-shadow: 0 6px 0 #0f5323; }
-    .btn-primario:hover { box-shadow: 0 9px 0 #0f5323; }
-    .btn-secundario { background: #21262d; color: #e6edf3; border-color: #30363d; box-shadow: 0 6px 0 #0d1117; }
-    .btn-secundario:hover { box-shadow: 0 9px 0 #0d1117; }
+    .btn-primario { background: #a0522d; color: #fff; box-shadow: 0 6px 0 #5c2e0e; }
+    .btn-primario:hover { box-shadow: 0 9px 0 #5c2e0e; }
+    .btn-secundario { background: #3d2b1f; color: #f5e6d3; border-color: #6b4c33; box-shadow: 0 6px 0 #1a120b; }
+    .btn-secundario:hover { box-shadow: 0 9px 0 #1a120b; }
 
     .badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
     .badge {
-        background: #161b22; border: 1px solid #30363d; color: #8b949e;
+        background: #2d1f14; border: 1px solid #5c3d2e; color: #c4a882;
         padding: 8px 16px; border-radius: 999px; font-size: .85rem; font-weight: 600;
     }
-    .badge strong { color: #58a6ff; }
+    .badge strong { color: #e9c46a; }
 
     /* Seções */
     section { padding: 80px 0; }
     section h2 {
         font-size: clamp(1.6rem, 4vw, 2.2rem);
         margin-bottom: 32px; display: flex; align-items: center; gap: 12px;
+        color: #fefae0;
     }
     section h2::before {
         content: ''; width: 6px; height: 1.2em; border-radius: 3px;
-        background: linear-gradient(#58a6ff, #bc8cff);
+        background: linear-gradient(#d4a373, #e9c46a);
     }
-    .sobre-texto { max-width: 720px; color: #c9d1d9; line-height: 1.8; font-size: 1.05rem; }
-    .sobre-texto strong { color: #58a6ff; }
+    .sobre-texto { max-width: 720px; color: #e8d5c4; line-height: 1.8; font-size: 1.05rem; }
+    .sobre-texto strong { color: #e9c46a; }
 
     /* Projetos */
     .grid-projetos {
@@ -89,22 +93,22 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
     .card-projeto {
-        background: #161b22; border: 1px solid #30363d; border-radius: 14px;
+        background: #2d1f14; border: 1px solid #5c3d2e; border-radius: 14px;
         padding: 24px; display: flex; flex-direction: column;
         transition: transform .18s, border-color .18s, box-shadow .18s;
     }
     .card-projeto:hover {
-        transform: translateY(-6px); border-color: #58a6ff;
-        box-shadow: 0 14px 40px rgba(88,166,255,.15);
+        transform: translateY(-6px); border-color: #d4a373;
+        box-shadow: 0 14px 40px rgba(212, 163, 115, 0.2);
     }
     .card-projeto .emoji { font-size: 40px; margin-bottom: 12px; }
-    .card-projeto h3 { font-size: 1.25rem; margin-bottom: 8px; color: #e6edf3; }
-    .card-projeto p { color: #8b949e; line-height: 1.55; flex: 1; margin-bottom: 16px; font-size: .95rem; }
+    .card-projeto h3 { font-size: 1.25rem; margin-bottom: 8px; color: #fefae0; }
+    .card-projeto p { color: #c4a882; line-height: 1.55; flex: 1; margin-bottom: 16px; font-size: .95rem; }
     .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
-    .tag { background: #1f6feb22; color: #58a6ff; font-size: .72rem; font-weight: 700;
+    .tag { background: #a0522d22; color: #d4a373; font-size: .72rem; font-weight: 700;
            padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: .5px; }
     .card-projeto a.link-projeto {
-        color: #58a6ff; font-weight: 700; text-decoration: none; font-size: .9rem;
+        color: #e9c46a; font-weight: 700; text-decoration: none; font-size: .9rem;
     }
     .card-projeto a.link-projeto:hover { text-decoration: underline; }
 
@@ -114,26 +118,26 @@
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
     .skill {
-        background: #161b22; border: 1px solid #30363d; border-radius: 10px;
-        padding: 18px; text-align: center; font-weight: 700; color: #c9d1d9;
+        background: #2d1f14; border: 1px solid #5c3d2e; border-radius: 10px;
+        padding: 18px; text-align: center; font-weight: 700; color: #e8d5c4;
         transition: border-color .15s, color .15s;
     }
-    .skill:hover { border-color: #bc8cff; color: #bc8cff; }
+    .skill:hover { border-color: #e9c46a; color: #e9c46a; }
     .skill span { display: block; font-size: 26px; margin-bottom: 6px; }
 
     /* Contato */
     .contato-links { display: flex; gap: 14px; flex-wrap: wrap; }
     .contato-links a {
         display: flex; align-items: center; gap: 10px;
-        background: #161b22; border: 1px solid #30363d; color: #e6edf3;
+        background: #2d1f14; border: 1px solid #5c3d2e; color: #f5e6d3;
         padding: 14px 22px; border-radius: 12px; text-decoration: none; font-weight: 600;
         transition: transform .15s, border-color .15s;
     }
-    .contato-links a:hover { transform: translateY(-3px); border-color: #58a6ff; }
+    .contato-links a:hover { transform: translateY(-3px); border-color: #d4a373; }
 
     footer {
         text-align: center; padding: 40px 24px 60px;
-        color: #8b949e; font-size: .9rem; border-top: 1px solid #21262d;
+        color: #c4a882; font-size: .9rem; border-top: 1px solid #3d2b1f;
     }
     footer .vaca-amor { font-size: 1.05rem; margin-top: 8px; }
 
@@ -170,24 +174,24 @@
         100%{transform:translate(4px,-2px)}
     }
     .modal-caixa {
-        background:#fff; border:8px solid #ff0000; border-radius:20px;
+        background:#fff8e7; border:8px solid #a0522d; border-radius:20px;
         padding:40px 50px; max-width:720px; width:92%; text-align:center;
-        box-shadow:0 0 0 8px #ffff00, 0 0 60px 20px #ff0000;
+        box-shadow:0 0 0 8px #e9c46a, 0 0 60px 20px #a0522d;
         animation:pulsar 0.6s infinite alternate;
     }
     @keyframes pulsar {
-        from{box-shadow:0 0 0 8px #ffff00,0 0 60px 20px #ff0000}
-        to{box-shadow:0 0 0 16px #ffff00,0 0 120px 40px #ff0000}
+        from{box-shadow:0 0 0 8px #e9c46a,0 0 60px 20px #a0522d}
+        to{box-shadow:0 0 0 16px #e9c46a,0 0 120px 40px #a0522d}
     }
     .modal-emoji{font-size:110px;line-height:1;animation:pular 0.5s infinite alternate}
     @keyframes pular{from{transform:scale(1) rotate(-8deg)}to{transform:scale(1.25) rotate(8deg)}}
     .modal-titulo{
-        font-family:Impact,'Arial Black',sans-serif;font-size:48px;color:#ff0000;
+        font-family:Impact,'Arial Black',sans-serif;font-size:48px;color:#a0522d;
         text-transform:uppercase;letter-spacing:2px;margin:10px 0;
-        text-shadow:3px 3px 0 #ffff00,6px 6px 0 #000;
+        text-shadow:3px 3px 0 #e9c46a,6px 6px 0 #5c2e0e;
     }
-    .modal-texto{font-family:Arial,sans-serif;font-size:20px;color:#222;line-height:1.5;margin:16px 0;font-weight:bold}
-    .modal-texto .destaque{color:#ff0000;font-size:24px;text-decoration:underline}
+    .modal-texto{font-family:Arial,sans-serif;font-size:20px;color:#3d2b1f;line-height:1.5;margin:16px 0;font-weight:bold}
+    .modal-texto .destaque{color:#a0522d;font-size:24px;text-decoration:underline}
     .modal-botoes{display:flex;gap:20px;justify-content:center;margin-top:28px;flex-wrap:wrap}
     .modal-botoes button{
         font-family:Impact,'Arial Black',sans-serif;font-size:24px;
@@ -195,7 +199,7 @@
         text-transform:uppercase;letter-spacing:1px;transition:transform 0.1s;
     }
     .modal-botoes button:hover{transform:scale(1.08)}
-    #btn-ficar{background:#00c853;color:#fff;box-shadow:0 6px 0 #007a33}
+    #btn-ficar{background:#6b8e23;color:#fff;box-shadow:0 6px 0 #3e5410}
     #btn-sair{background:#9e9e9e;color:#eee;box-shadow:0 6px 0 #555;font-size:16px;padding:12px 22px}
 
     /* ============================================================
@@ -206,9 +210,9 @@
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 55vw;          /* ocupa só o centro do topo */
+        width: 55vw;
         max-width: 640px;
-        height: 14px;         /* bem fininha */
+        height: 14px;
         z-index: 999997;
         pointer-events: auto;
         background: transparent;
@@ -223,7 +227,7 @@
     <h1>pixelcatBR</h1>
     <div class="handle">@pixelcatBR · dev &amp; cúmplice de vacas</div>
     <p class="tagline">
-        Desenvolvedor backend que gosta de sistemas bem feitos, refrigerantes de guaraná
+        Desenvolvedor backend que gosta de sistemas bem feitos, leite gelado
         e de <strong>vacas felizes</strong>. 🐮
     </p>
     <div class="hero-botoes">
@@ -315,7 +319,7 @@
 </main>
 
 <footer>
-    <p>© 2026 pixelcatBR — feito com guaraná, código e uma vaca.</p>
+    <p>© 2026 pixelcatBR — feito com leite, código e uma vaca.</p>
     <p class="vaca-amor">Se você chegou até aqui, a vaca está feliz. 🐮❤️</p>
 </footer>
 
@@ -459,14 +463,9 @@ safe('botão sair', () => {
 // ============================================================
 // 🎯 DETECTOR DE SAÍDA — APENAS NA ÁREA PEQUENA DO TOPO CENTRAL
 // ============================================================
-// A detecção agora é feita SOMENTE na #faixa-topo (14px de altura,
-// centralizada). Os detectores globais de mouseleave/mouseout no
-// document foram REMOVIDOS, pois disparavam em qualquer borda da tela.
-
 safe('detector faixa do topo', () => {
     const faixa = document.getElementById('faixa-topo');
 
-    // mouseleave: só dispara quando o cursor sai da faixa pela parte de cima
     faixa.addEventListener('mouseleave', (e) => {
         if (permitirSaida || modalAberto) return;
         if (e.clientY <= 0) {
@@ -475,7 +474,6 @@ safe('detector faixa do topo', () => {
         }
     });
 
-    // mouseout: reforço para o caso de o cursor sair da faixa por cima
     faixa.addEventListener('mouseout', (e) => {
         if (permitirSaida || modalAberto) return;
         if (e.relatedTarget !== null) return;
