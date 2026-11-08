@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🐮 pixelcatBR — dev & cúmplice de vacas</title>
+<title>pixelcatBR — dev</title>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -11,7 +11,6 @@
         background: #0d1117;
         color: #e6edf3;
         font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        cursor: none; /* a vaca é o cursor */
         overflow-x: hidden;
     }
 
@@ -135,85 +134,6 @@
         text-align: center; padding: 40px 24px 60px;
         color: #8b949e; font-size: .9rem; border-top: 1px solid #21262d;
     }
-    footer .vaca-amor { font-size: 1.05rem; margin-top: 8px; }
-
-    /* ===================== VACA OVERLAY (original) ===================== */
-    #vaca-overlay {
-        position: fixed; top: 0; left: 0;
-        width: 200px; height: 200px;
-        pointer-events: none; z-index: 99998;
-        will-change: transform;
-        transform: translate(-250px, calc(100vh - 250px));
-    }
-    #vaca-label {
-        width: 100%; height: 100%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 150px; line-height: 1;
-        user-select: none; -webkit-user-select: none;
-    }
-    #vaca-label img { max-width: 180px; max-height: 180px; object-fit: contain; }
-    #vaca-cursor {
-        position: fixed; top: 0; left: 0;
-        font-size: 32px; pointer-events: none; z-index: 10000;
-        transform: translate(-50%, -50%); line-height: 1;
-        will-change: transform; display: block;
-    }
-    #modal-saida {
-        position: fixed; inset: 0; z-index: 999999;
-        display: none; align-items: center; justify-content: center;
-        background: rgba(0,0,0,0.85); cursor: auto;
-    }
-    #modal-saida.ativo { display: flex; animation: tremor 0.15s infinite; }
-    @keyframes tremor {
-        0%{transform:translate(0,0)}25%{transform:translate(-4px,2px)}
-        50%{transform:translate(3px,-3px)}75%{transform:translate(-2px,4px)}
-        100%{transform:translate(4px,-2px)}
-    }
-    .modal-caixa {
-        background:#fff; border:8px solid #ff0000; border-radius:20px;
-        padding:40px 50px; max-width:720px; width:92%; text-align:center;
-        box-shadow:0 0 0 8px #ffff00, 0 0 60px 20px #ff0000;
-        animation:pulsar 0.6s infinite alternate;
-    }
-    @keyframes pulsar {
-        from{box-shadow:0 0 0 8px #ffff00,0 0 60px 20px #ff0000}
-        to{box-shadow:0 0 0 16px #ffff00,0 0 120px 40px #ff0000}
-    }
-    .modal-emoji{font-size:110px;line-height:1;animation:pular 0.5s infinite alternate}
-    @keyframes pular{from{transform:scale(1) rotate(-8deg)}to{transform:scale(1.25) rotate(8deg)}}
-    .modal-titulo{
-        font-family:Impact,'Arial Black',sans-serif;font-size:48px;color:#ff0000;
-        text-transform:uppercase;letter-spacing:2px;margin:10px 0;
-        text-shadow:3px 3px 0 #ffff00,6px 6px 0 #000;
-    }
-    .modal-texto{font-family:Arial,sans-serif;font-size:20px;color:#222;line-height:1.5;margin:16px 0;font-weight:bold}
-    .modal-texto .destaque{color:#ff0000;font-size:24px;text-decoration:underline}
-    .modal-botoes{display:flex;gap:20px;justify-content:center;margin-top:28px;flex-wrap:wrap}
-    .modal-botoes button{
-        font-family:Impact,'Arial Black',sans-serif;font-size:24px;
-        padding:16px 34px;border:none;border-radius:12px;cursor:pointer;
-        text-transform:uppercase;letter-spacing:1px;transition:transform 0.1s;
-    }
-    .modal-botoes button:hover{transform:scale(1.08)}
-    #btn-ficar{background:#00c853;color:#fff;box-shadow:0 6px 0 #007a33}
-    #btn-sair{background:#9e9e9e;color:#eee;box-shadow:0 6px 0 #555;font-size:16px;padding:12px 22px}
-
-    /* ============================================================
-       ÁREA DE ATIVAÇÃO — MENOR E APENAS NO TOPO CENTRAL
-       ============================================================ */
-    #faixa-topo {
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 55vw;          /* ocupa só o centro do topo */
-        max-width: 640px;
-        height: 14px;         /* bem fininha */
-        z-index: 999997;
-        pointer-events: auto;
-        background: transparent;
-        border: none;
-    }
 </style>
 </head>
 <body>
@@ -221,10 +141,9 @@
 <!-- ===================== PORTFÓLIO ===================== -->
 <header class="hero">
     <h1>pixelcatBR</h1>
-    <div class="handle">@pixelcatBR · dev &amp; cúmplice de vacas</div>
+    <div class="handle">@pixelcatBR · dev</div>
     <p class="tagline">
-        Desenvolvedor backend que gosta de sistemas bem feitos, refrigerantes de guaraná
-        e de <strong>vacas felizes</strong>. 🐮
+        Desenvolvedor backend que gosta de sistemas bem feitos e de refrigerantes de guaraná.
     </p>
     <div class="hero-botoes">
         <a href="#projetos" class="btn btn-primario">Ver projetos</a>
@@ -247,8 +166,7 @@
         <p class="sobre-texto">
             Oi! Sou o <strong>pixelcatBR</strong>, dev focado em backend e infraestrutura.
             Gosto de APIs pequenas e eficientes, código legível, automação e resolver problemas
-            que ninguém quer resolver. Também gosto de fazer piada com vacas em
-            produção — inclusive esta página tem uma. 🐄
+            que ninguém quer resolver.
         </p>
     </section>
 
@@ -315,311 +233,8 @@
 </main>
 
 <footer>
-    <p>© 2026 pixelcatBR — feito com guaraná, código e uma vaca.</p>
-    <p class="vaca-amor">Se você chegou até aqui, a vaca está feliz. 🐮❤️</p>
+    <p>© 2026 pixelcatBR — feito com guaraná e código.</p>
 </footer>
 
-<!-- ===================== VACA OVERLAY ===================== -->
-<div id="vaca-overlay"><div id="vaca-label">🐮</div></div>
-<div id="vaca-cursor">🐮</div>
-
-<!-- Faixa do topo invisível (área de ativação reduzida e centralizada) -->
-<div id="faixa-topo"></div>
-
-<div id="modal-saida">
-    <div class="modal-caixa">
-        <div class="modal-emoji">🚨🐄🚨</div>
-        <div class="modal-titulo">NÃO VÁ EMBORA!</div>
-        <p class="modal-texto">
-            A vaca <span class="destaque">NÃO QUER</span> que você vá embora! 🐮💔
-        </p>
-        <p class="modal-texto">
-            Ela está <span class="destaque">MUITO TRISTE</span> com a sua decisão...<br>
-            <strong>FIQUE MAIS UM POUCO!</strong> A vaca promete que vai valer a pena!<br>
-            Se você sair agora, ela vai ficar sozinha e <span class="destaque">chorando</span> 🐮😭
-        </p>
-        <div class="modal-botoes">
-            <button id="btn-ficar">🐮 FICAR COM A VACA</button>
-            <button id="btn-sair">sair mesmo assim (a vaca vai chorar)</button>
-        </div>
-    </div>
-</div>
-
-<script>
-// ============================================================
-// URLs RAW
-// ============================================================
-const URL_VACA_PNG   = 'https://raw.githubusercontent.com/StartupCow/StartupCow/main/vaca.png';
-const URL_VACA_MOO   = 'https://raw.githubusercontent.com/StartupCow/StartupCow/main/vaca_mugido.mp3';
-const URL_ALERTA_MOO = 'https://raw.githubusercontent.com/StartupCow/StartupCow/main/alerta.mp3';
-
-// ============================================================
-// Estado
-// ============================================================
-let audioCtx = null;
-let audioSource = null;
-let alertaAudio = null;
-let jaMugiu = false;
-let permitirSaida = false;
-let houveInteracao = false;
-let modalAberto = false;
-let alertaJaDisparou = false;
-
-const SCREEN_W = window.innerWidth;
-const SCREEN_H = window.innerHeight;
-const Y_POS    = SCREEN_H - 250;
-const VACA_W   = 200;
-const X_INICIAL = -250;
-const CENTRO_X  = (SCREEN_W - VACA_W) / 2;
-const X_FINAL   = SCREEN_W + 200;
-
-// ============================================================
-// Helpers
-// ============================================================
-function safe(nome, fn) {
-    try { fn(); console.log('✅', nome); }
-    catch (e) { console.error('❌', nome, 'FALHOU:', e.message, e); }
-}
-
-// ============================================================
-// MODAL
-// ============================================================
-function abrirModalSaida() {
-    if (modalAberto) return;
-    modalAberto = true;
-
-    safe('modal: exibir', () => {
-        document.getElementById('modal-saida').classList.add('ativo');
-    });
-
-    safe('modal: áudio', () => {
-        if (alertaJaDisparou) return;
-        alertaJaDisparou = true;
-        alertaAudio = new Audio(URL_ALERTA_MOO);
-        alertaAudio.volume = 1.0;
-        alertaAudio.loop = true;
-        alertaAudio.addEventListener('error', () => {
-            console.warn('alerta.mp3 falhou — sirene sintética');
-            sireneSintetica();
-        });
-        alertaAudio.play().catch(err => {
-            console.warn('play() rejeitado:', err.message, '— sirene sintética');
-            sireneSintetica();
-        });
-    });
-}
-
-function fecharModal() {
-    safe('modal: esconder', () => {
-        document.getElementById('modal-saida').classList.remove('ativo');
-    });
-    modalAberto = false;
-    if (alertaAudio) {
-        try { alertaAudio.pause(); alertaAudio.currentTime = 0; } catch(e){}
-        alertaAudio = null;
-    }
-    alertaJaDisparou = false;
-}
-
-function sireneSintetica() {
-    try {
-        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-        for (let i = 0; i < 3; i++) {
-            const t = audioCtx.currentTime + i * 0.4;
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'square';
-            osc.frequency.setValueAtTime(880, t);
-            osc.frequency.linearRampToValueAtTime(660, t + 0.2);
-            gain.gain.setValueAtTime(0.0001, t);
-            gain.gain.exponentialRampToValueAtTime(0.25, t + 0.02);
-            gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.3);
-            osc.connect(gain); gain.connect(audioCtx.destination);
-            osc.start(t); osc.stop(t + 0.32);
-        }
-    } catch (e) {}
-}
-
-// ============================================================
-// Botões do modal
-// ============================================================
-safe('botão ficar', () => {
-    document.getElementById('btn-ficar').addEventListener('click', fecharModal);
-});
-
-safe('botão sair', () => {
-    document.getElementById('btn-sair').addEventListener('click', () => {
-        fecharModal();
-        permitirSaida = true;
-        window.close();
-    });
-});
-
-// ============================================================
-// 🎯 DETECTOR DE SAÍDA — APENAS NA ÁREA PEQUENA DO TOPO CENTRAL
-// ============================================================
-// A detecção agora é feita SOMENTE na #faixa-topo (14px de altura,
-// centralizada). Os detectores globais de mouseleave/mouseout no
-// document foram REMOVIDOS, pois disparavam em qualquer borda da tela.
-
-safe('detector faixa do topo', () => {
-    const faixa = document.getElementById('faixa-topo');
-
-    // mouseleave: só dispara quando o cursor sai da faixa pela parte de cima
-    faixa.addEventListener('mouseleave', (e) => {
-        if (permitirSaida || modalAberto) return;
-        if (e.clientY <= 0) {
-            console.log('[topo] saiu da faixa do topo — abrindo modal');
-            abrirModalSaida();
-        }
-    });
-
-    // mouseout: reforço para o caso de o cursor sair da faixa por cima
-    faixa.addEventListener('mouseout', (e) => {
-        if (permitirSaida || modalAberto) return;
-        if (e.relatedTarget !== null) return;
-        if (e.clientY <= 0) {
-            console.log('[topo] mouseout pelo topo — abrindo modal');
-            abrirModalSaida();
-        }
-    });
-});
-
-// ============================================================
-// Segurança: beforeunload (nativo do navegador, independe de posição)
-// ============================================================
-safe('beforeunload', () => {
-    window.addEventListener('beforeunload', (e) => {
-        if (permitirSaida) return;
-        if (!houveInteracao) return;
-        const msg =
-            '🚨🐄 NÃO VÁ EMBORA! 🐄🚨\n\n' +
-            'A VACA NÃO QUER QUE VOCÊ SAIA!\n' +
-            'ELA VAI FICAR MUITO TRISTE E SOZINHA! 🐮😭\n\n' +
-            'FIQUE MAIS UM POUCO COM ELA!\n\n' +
-            'Clique em "Cancelar" para ficar com a vaca!';
-        e.preventDefault();
-        e.returnValue = msg;
-        return msg;
-    });
-});
-
-// Interação: cobre scroll também (portfólio tem scroll)
-safe('interação', () => {
-    ['click', 'keydown', 'touchstart', 'wheel'].forEach(evt => {
-        document.addEventListener(evt, () => {
-            houveInteracao = true;
-            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
-        }, { once: true, capture: true });
-    });
-});
-
-// Atalho A (mantido, mas opcional — comente se não quiser)
-safe('atalho A', () => {
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'a' || e.key === 'A') abrirModalSaida();
-    });
-});
-
-// ============================================================
-// CURSOR-PERSONAGEM
-// ============================================================
-safe('cursor', () => {
-    const cursorEl = document.getElementById('vaca-cursor');
-    let cx = window.innerWidth / 2;
-    let cy = window.innerHeight / 2;
-    let alvoX = cx, alvoY = cy;
-
-    document.addEventListener('mousemove', (e) => {
-        alvoX = e.clientX;
-        alvoY = e.clientY;
-    });
-
-    function animarCursor() {
-        cx += (alvoX - cx) * 0.25;
-        cy += (alvoY - cy) * 0.25;
-        cursorEl.style.left = `${cx}px`;
-        cursorEl.style.top  = `${cy}px`;
-        requestAnimationFrame(animarCursor);
-    }
-    animarCursor();
-});
-
-// ============================================================
-// VACA
-// ============================================================
-safe('vaca', () => {
-    const overlay = document.getElementById('vaca-overlay');
-    const label   = document.getElementById('vaca-label');
-    overlay.style.transform = `translate(${X_INICIAL}px, ${Y_POS}px)`;
-
-    const img = new Image();
-    img.onload = () => {
-        label.innerHTML = '';
-        img.alt = 'vaca';
-        label.appendChild(img);
-    };
-    img.onerror = () => console.warn('vaca.png falhou — emoji');
-    img.src = URL_VACA_PNG;
-
-    function moverPara(xInicio, xFim, duracao, aoTerminar) {
-        try {
-            const anim = overlay.animate(
-                [
-                    { transform: `translate(${xInicio}px, ${Y_POS}px)` },
-                    { transform: `translate(${xFim}px, ${Y_POS}px)` }
-                ],
-                { duration: duracao, easing: 'cubic-bezier(0.455,0.03,0.515,0.955)', fill: 'forwards' }
-            );
-            anim.onfinish = () => {
-                overlay.style.transform = `translate(${xFim}px, ${Y_POS}px)`;
-                if (aoTerminar) aoTerminar();
-            };
-        } catch (e) {
-            overlay.style.transform = `translate(${xFim}px, ${Y_POS}px)`;
-            if (aoTerminar) aoTerminar();
-        }
-    }
-
-    function mugir() {
-        if (jaMugiu) return;
-        jaMugiu = true;
-        try {
-            const a = new Audio(URL_VACA_MOO);
-            a.volume = 0.8;
-            a.addEventListener('error', mooSintetico);
-            a.play().catch(mooSintetico);
-            audioSource = a;
-        } catch (e) { mooSintetico(); }
-        setTimeout(() => {
-            moverPara(CENTRO_X, X_FINAL, 2500, () => {
-                overlay.style.display = 'none';
-            });
-        }, 2500);
-    }
-
-    function mooSintetico() {
-        try {
-            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(180, audioCtx.currentTime);
-            osc.frequency.linearRampToValueAtTime(120, audioCtx.currentTime + 0.6);
-            gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.3, audioCtx.currentTime + 0.05);
-            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.8);
-            osc.connect(gain); gain.connect(audioCtx.destination);
-            osc.start(); osc.stop(audioCtx.currentTime + 0.85);
-        } catch (e) {}
-    }
-
-    setTimeout(() => moverPara(X_INICIAL, CENTRO_X, 3000, mugir), 1000);
-});
-
-console.log('=== TUDO INICIALIZADO ===');
-</script>
 </body>
 </html>
